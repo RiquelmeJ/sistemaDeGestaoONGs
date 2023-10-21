@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Softex
  */
-public class FrameFluxoCaixa extends javax.swing.JFrame {
+public class FrameFluxoCaixa extends javax.swing.JFrame implements InterfaceFormulario, InterfaceLista {
     private Financeiro fluxo;
     private static int idEstatico = 1;
     private boolean auxTipo;
@@ -26,7 +26,7 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
     public FrameFluxoCaixa(Financeiro fluxo) {
         this.fluxo = fluxo;
         initComponents();
-        criaTela();
+        geraLista();
     }
 
     /**
@@ -84,17 +84,23 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(650, 600));
+        setAlwaysOnTop(true);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(549, 522));
+        setMinimumSize(new java.awt.Dimension(549, 522));
         setModalExclusionType(null);
         setPreferredSize(new java.awt.Dimension(650, 600));
+        setResizable(false);
+        setSize(new java.awt.Dimension(650, 600));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Controle Financeiro");
+        jLabel1.setAlignmentX(0.5F);
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("REGISTRAR ENTRADA/SAÍDA");
+        jLabel3.setText("Registrar entrada/saída");
 
         jLabel4.setText("Data:");
 
@@ -137,9 +143,9 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("VALOR ATUAL");
+        jLabel2.setText("Valor atual");
 
         txtTotal.setBackground(new java.awt.Color(255, 255, 255));
         txtTotal.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -171,7 +177,7 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtEntradas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtSaidas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -235,7 +241,7 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
                                                     .addComponent(jLabel5)
                                                     .addComponent(jLabel6))
                                                 .addGap(0, 0, Short.MAX_VALUE))
-                                            .addComponent(txtTipo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                            .addComponent(txtTipo, 0, 132, Short.MAX_VALUE))))))
                         .addContainerGap())
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -286,9 +292,9 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblTransacoes);
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel8.setText("HISTÓRICO DE FLUXO");
+        jLabel8.setText("Histórico de fluxo");
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -352,7 +358,7 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                .addComponent(btnAtualizar, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnExcluir)
                 .addContainerGap())
@@ -373,15 +379,19 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jSeparator1)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jSeparator1))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -393,7 +403,7 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -403,24 +413,29 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        boolean tipo;
-        double valor = Double.valueOf(txtValor.getText());
-        
-        if (txtTipo.getSelectedIndex() == 0) {
-            tipo = true;
-            fluxo.setEntradas(fluxo.getEntradas() + valor);
-            fluxo.setSaldo(fluxo.getSaldo() + valor);
+        if (validaCampos()) {
+            boolean tipo;
+            double valor = Double.valueOf(txtValor.getText());
+            
+            if (txtTipo.getSelectedIndex() == 0) {
+                tipo = true;
+                fluxo.setEntradas(fluxo.getEntradas() + valor);
+                fluxo.setSaldo(fluxo.getSaldo() + valor);
+            } else {
+                tipo = false;
+                fluxo.setSaidas(fluxo.getSaidas() + valor);
+                fluxo.setSaldo(fluxo.getSaldo() - valor);
+            }
+            
+            Transacao t = new Transacao(txtData.getText(), valor, tipo, txtDescricao.getText());
+            t.setId(idEstatico);
+            idEstatico++;
+            fluxo.getFluxo().add(t);
+            geraLista();
+            limpaCampos();
         } else {
-            tipo = false;
-            fluxo.setSaidas(fluxo.getSaidas() + valor);
-            fluxo.setSaldo(fluxo.getSaldo() - valor);
+            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos corretamente.");
         }
-        
-        Transacao t = new Transacao(txtData.getText(), valor, tipo, txtDescricao.getText());
-        t.setId(idEstatico);
-        idEstatico++;
-        fluxo.getFluxo().add(t);
-        criaTela();
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -453,7 +468,7 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
             }
 
             fluxo.getFluxo().remove(t);
-            criaTela();
+            geraLista();
          } else {
             JOptionPane.showMessageDialog(null, "Selecione uma transação.");
         }
@@ -491,33 +506,34 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtValorActionPerformed
 
     private void btnAtualizarActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed1
-        btnAtualizar.setEnabled(false);
-        btnEditar.setEnabled(true);
-        btnExcluir.setEnabled(true);
-        btnSalvar.setEnabled(true);
+         if (validaCampos()) {
+             btnAtualizar.setEnabled(false);
+            btnEditar.setEnabled(true);
+            btnExcluir.setEnabled(true);
+            btnSalvar.setEnabled(true);
         
 
-        boolean tipo;
-        double valor = Double.valueOf(txtValor.getText());
-        
-        if (txtTipo.getSelectedIndex() == 0) {
-            tipo = true;
-        } else {
-            tipo = false;
-        }
+            boolean tipo;
+            double valor = Double.valueOf(txtValor.getText());
+            
+            if (txtTipo.getSelectedIndex() == 0) {
+                tipo = true;
+            } else {
+                tipo = false;
+            }
 
 
-        int id = Integer.valueOf(txtID.getText());
-        Transacao t = transacaoPorId(id);
-        t.editarTransacao(txtData.getText(), valor, tipo, txtDescricao.getText());
-        
-        if (auxTipo) {
-            fluxo.setEntradas(fluxo.getEntradas() - auxValor);
-            fluxo.setSaldo(fluxo.getSaldo() - auxValor);
-        } else {
-            fluxo.setSaidas(fluxo.getSaidas() - auxValor);
-            fluxo.setSaldo(fluxo.getSaldo() + auxValor);
-        }
+            int id = Integer.valueOf(txtID.getText());
+            Transacao t = transacaoPorId(id);
+            t.editarTransacao(txtData.getText(), valor, tipo, txtDescricao.getText());
+            
+            if (auxTipo) {
+                fluxo.setEntradas(fluxo.getEntradas() - auxValor);
+                fluxo.setSaldo(fluxo.getSaldo() - auxValor);
+            } else {
+                fluxo.setSaidas(fluxo.getSaidas() - auxValor);
+                fluxo.setSaldo(fluxo.getSaldo() + auxValor);
+            }
         
             if (txtTipo.getSelectedIndex() == 0) {
                 tipo = true;
@@ -529,7 +545,11 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
                 fluxo.setSaldo(fluxo.getSaldo() - valor);
             }
 
-        criaTela();
+            geraLista();
+            limpaCampos();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos corretamente.");
+        }
     }//GEN-LAST:event_btnAtualizarActionPerformed1
 
     /**
@@ -567,7 +587,7 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
         });*/
     }
     
-    public void criaTela() {
+    public void geraLista() {
         txtTotal.setText("R$" + String.valueOf(fluxo.getSaldo()));
         if (fluxo.getSaldo()>= 0) {
             txtTotal.setForeground(Color.decode("#006400"));
@@ -619,6 +639,25 @@ public class FrameFluxoCaixa extends javax.swing.JFrame {
         }
         return null;
     }
+
+    public void limpaCampos() {
+        txtData.setText(null);
+        txtDescricao.setText(null);
+        txtValor.setText(null);
+        txtTipo.setSelectedIndex(0);
+    }
+
+    public boolean validaCampos() {
+        if ((txtData.getText().contains(" ")) || (txtDescricao.getText().isEmpty())) {
+            return false;
+        } else if (!txtValor.getText().matches("^[0-9.]+$")) {
+            JOptionPane.showMessageDialog(rootPane, "Utilize apenas números e pontos para\nindicar valores (exemplo: represente \nR$12,25 como 12.25).");
+            return false;
+        }
+        return true;
+    }
+        
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnEditar;

@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Softex
  */
-public class FrameListaAnimais extends javax.swing.JFrame {
+public class FrameListaAnimais extends javax.swing.JFrame implements InterfaceLista {
     private ArrayList<Animal> animais = new ArrayList<>();
 
     /**
@@ -23,7 +23,7 @@ public class FrameListaAnimais extends javax.swing.JFrame {
     public FrameListaAnimais(ArrayList<Animal> animais) {
         this.animais = animais;
         initComponents();
-        criarLista();
+        geraLista();
     }
 
     /**
@@ -85,7 +85,7 @@ public class FrameListaAnimais extends javax.swing.JFrame {
             }
         });
 
-        btnExcluir.setBackground(new java.awt.Color(255, 0, 0));
+        btnExcluir.setBackground(new java.awt.Color(204, 0, 0));
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluir.setText("Excluir animal");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
@@ -200,7 +200,7 @@ public class FrameListaAnimais extends javax.swing.JFrame {
             int id = (int) tblAnimais.getValueAt(tblAnimais.getSelectedRow(), 0);
         Animal a = animalPorId(id);
         animais.remove(a);
-        criarLista();
+        geraLista();
         } else {
             JOptionPane.showMessageDialog(null, "Selecione um animal.");
         }
@@ -240,7 +240,7 @@ public class FrameListaAnimais extends javax.swing.JFrame {
         });*/
     }
     
-    private void criarLista(){
+    public void geraLista() {
         DefaultTableModel model = new DefaultTableModel() {
             public boolean isCellEditable (int row, int column) {
                 return false;

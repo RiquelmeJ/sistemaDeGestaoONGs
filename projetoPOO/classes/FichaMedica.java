@@ -5,6 +5,7 @@ public class FichaMedica {
     private int idadeEstimada;
     private String observacao;
     private String data;
+    private int id;
 
     public FichaMedica(double peso, int idadeEstimada, String observacao, String data) {
         this.peso = peso;
@@ -39,4 +40,13 @@ public class FichaMedica {
     public void setData(String data) {
         this.data = data;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

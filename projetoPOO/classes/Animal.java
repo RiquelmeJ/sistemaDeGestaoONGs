@@ -7,6 +7,7 @@ public class Animal {
     private String dataAdocao;
     private String sexo;
     private String especie;
+    private String raca;
     private String anotacoes;
     private boolean adotado = false;
     private int id;
@@ -20,11 +21,12 @@ public class Animal {
         return "Nome: " + nome +", " + sexo + " da espécie " + especie + ";" +
          "\n Resgatado em " + dataAdocao +".";
     }
-    public Animal(String nome, String dataAdocao, String sexo, String especie, String anotacoes) {
+    public Animal(String nome, String dataAdocao, String sexo, String especie, String raca, String anotacoes) {
         this.nome = nome;
         this.dataAdocao = dataAdocao;
         this.sexo = sexo;
         this.especie = especie;
+        this.raca = raca;
         this.anotacoes = anotacoes;
     }
     public String getNome() {
@@ -57,6 +59,12 @@ public class Animal {
     }
     public void setEspecie(String especie) {
         this.especie = especie;
+    }
+    public String getRaca() {
+        return raca;
+    }
+    public void setRaca(String raca) {
+        this.raca = raca;
     }
     public boolean isAdotado() {
         return adotado;
@@ -102,11 +110,12 @@ public class Animal {
         return new Object[] {nome, especie, sexo, adotado};
     }
     
-    public void editarAnimal(String nome, String dataAdocao, String sexo, String especie, String anotacoes, int idEspecie, int idSexo) {
+    public void editarAnimal(String nome, String dataAdocao, String sexo, String especie, String raca, String anotacoes, int idEspecie, int idSexo) {
         this.setNome(nome);
         this.setDataAdocao(dataAdocao);
         this.setSexo(sexo);
         this.setEspecie(especie);
+        this.setRaca(raca);
         this.setAnotacoes(anotacoes);
         this.setIdEspecie(idEspecie);
         this.setIdSexo(idSexo);

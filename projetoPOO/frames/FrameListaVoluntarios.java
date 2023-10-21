@@ -51,7 +51,7 @@ public class FrameListaVoluntarios extends javax.swing.JFrame {
             }
         });
 
-        btnExcluir.setBackground(new java.awt.Color(255, 0, 0));
+        btnExcluir.setBackground(new java.awt.Color(204, 0, 0));
         btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
         btnExcluir.setText("Excluir voluntário");
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {

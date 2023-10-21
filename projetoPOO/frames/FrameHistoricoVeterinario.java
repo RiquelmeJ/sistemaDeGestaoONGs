@@ -14,8 +14,9 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Softex
  */
-public class FrameHistoricoVeterinario extends javax.swing.JFrame {
+public class FrameHistoricoVeterinario extends javax.swing.JFrame implements InterfaceLista, InterfaceFormulario {
     private Animal animal;
+    private static int idEstatico = 1;
 
     /**
      * Creates new form FrameHistoricoVeterinario
@@ -24,7 +25,7 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
         this.animal = animal;
         initComponents();
         lblNome.setText(animal.getNome());
-        criarLista(animal);
+        geraLista();
     }
 
     /**
@@ -42,6 +43,7 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblRegistros = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
@@ -60,7 +62,12 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
         btnAdicionar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         txtPeso = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanel4 = new javax.swing.JPanel();
+        btnExpandir = new javax.swing.JButton();
+        btnExcluir = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -88,7 +95,19 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane4.setViewportView(jTextArea2);
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         tblRegistros.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,7 +128,7 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
 
         lblNome.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNome.setText("[nome voluntário]");
+        lblNome.setText("[nome animal]");
         lblNome.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -156,6 +175,8 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("ID:");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -164,8 +185,12 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(106, 106, 106)
                         .addComponent(btnAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,9 +213,12 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(btnAdicionar))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(btnAdicionar)
+                        .addComponent(jLabel9)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -208,7 +236,7 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane3))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -231,18 +259,56 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        btnExpandir.setText("Expandir ");
+        btnExpandir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExpandirActionPerformed(evt);
+            }
+        });
+
+        btnExcluir.setBackground(new java.awt.Color(204, 0, 0));
+        btnExcluir.setForeground(new java.awt.Color(255, 255, 255));
+        btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnExpandir)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExcluir)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExpandir)
+                    .addComponent(btnExcluir))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSeparator1)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -257,8 +323,10 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9))
         );
 
         pack();
@@ -275,15 +343,40 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
         double peso = Double.parseDouble(txtPeso.getText());
         FichaMedica fm = new FichaMedica(peso, Integer.parseInt(txtIdade.getText()), txtDescricao.getText(), txtData.getText());
+        fm.setId(idEstatico);
+        idEstatico++;
         animal.getHistoricoMedico().add(fm);
         JOptionPane.showMessageDialog(null, "Registro adicionado ao histórico.");
-        criarLista(animal);
+        geraLista();
         txtDescricao.setText(String.valueOf(animal.getHistoricoMedico().size()));
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPesoActionPerformed
+
+    private void btnExpandirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExpandirActionPerformed
+        if (tblRegistros.getSelectedRow() != -1) {
+            int id = (int) tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 0);
+            FichaMedica f = fichaPorId(id);
+            JOptionPane.showMessageDialog(rootPane,"REGISTRO\nDATA: " + f.getData() +
+            "\nPESO(kg): " + f.getPeso() + "\nIDADE: " + f.getPeso() + "\n\n" + f.getObservacao());
+            } else {
+                JOptionPane.showMessageDialog(null, "Selecione um animal.");
+            }
+    }//GEN-LAST:event_btnExpandirActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+       if (tblRegistros.getSelectedRow() != -1) {
+            int id = (int) tblRegistros.getValueAt(tblRegistros.getSelectedRow(), 0);
+            FichaMedica f = fichaPorId(id);
+            animal.getHistoricoMedico().remove(f);
+            JOptionPane.showMessageDialog(null, "Registro deletado.");
+            geraLista();
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione um animal.");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,31 +413,41 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
         });*/
     }
 
-    private void criarLista(Animal animal){
+    public void geraLista() {
+        txtId.setText(String.valueOf(idEstatico));
         DefaultTableModel model = new DefaultTableModel() {
-        @Override
-        public boolean isCellEditable(int row, int column) {
-            return false;
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        model.addColumn("Id");
+        model.addColumn("Data");
+        model.addColumn("Observação");
+
+        // Preenche o modelo de tabela com os dados do registro
+        for (FichaMedica f : animal.getHistoricoMedico()) {
+            Object[] rowData = {f.getId(), f.getData(), f.getObservacao()};
+            model.addRow(rowData);
         }
-    };
 
-    model.addColumn("Data");
-    model.addColumn("Peso");
-    model.addColumn("Idade");
-    model.addColumn("Observação");
-
-    // Preenche o modelo de tabela com os dados do registro
-    for (FichaMedica f : animal.getHistoricoMedico()) {
-        Object[] rowData = {f.getData(), f.getPeso(), f.getIdadeEstimada(), f.getObservacao()};
-        model.addRow(rowData);
+        tblRegistros.setModel(model);
     }
 
-    tblRegistros.setModel(model);
-    }
-     
+    public FichaMedica fichaPorId(int id) {
+        for (FichaMedica ficha : animal.getHistoricoMedico()) {
+            if (ficha.getId() == id) {
+                return ficha;
+            }
+        }
+        return null;
+    }     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdicionar;
+    private javax.swing.JButton btnExcluir;
+    private javax.swing.JButton btnExpandir;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -354,8 +457,11 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -367,7 +473,27 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame {
     private javax.swing.JTable tblRegistros;
     private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextArea txtDescricao;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtIdade;
     private javax.swing.JTextField txtPeso;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void limpaCampos() {
+        txtData.setText(null);
+        txtDescricao.setText(null);
+        txtIdade.setText(null);
+        txtPeso.setText(null);
+
+    }
+
+    @Override
+    public boolean validaCampos() {
+        if ((txtData.getText().isEmpty()) || (txtDescricao.getText().isEmpty())) {
+            return false;
+        }
+
+        return true;
+    }
+
 }

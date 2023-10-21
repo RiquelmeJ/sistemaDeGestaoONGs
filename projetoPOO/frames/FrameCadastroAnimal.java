@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author Softex
  */
-public class FrameCadastroAnimal extends javax.swing.JFrame {
+public class FrameCadastroAnimal extends javax.swing.JFrame implements InterfaceFormulario{
     private ArrayList<Animal> animais = new ArrayList<>();
     private static int idEstatico = 1;
     /**
      * Creates new form FrameCadastroAnimal
      */
-    public FrameCadastroAnimal(ArrayList animais) {
+    public FrameCadastroAnimal(ArrayList<Animal> animais) {
         this.animais = animais;
         initComponents();
         txtID.setText(String.valueOf(idEstatico));
@@ -50,6 +50,8 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
         txtSexo = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        txtRaca = new javax.swing.JTextField();
         btnSalvar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
@@ -109,6 +111,14 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setText("Raça:");
+
+        txtRaca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRacaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,13 +128,13 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -133,6 +143,10 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -150,15 +164,19 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(txtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEspecie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(txtRaca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel4)
+                        .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel6)
+                        .addComponent(txtSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -215,7 +233,7 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
         pack();
@@ -226,20 +244,21 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSexoActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
-        Object sexo = txtSexo.getSelectedItem();
-        Object especie = txtEspecie.getSelectedItem();
-        Animal a = new Animal(txtNome.getText(), txtData.getText(),sexo.toString(), especie.toString(), txtAnotacoes.getText());
-        txtAnotacoes.setText(a.toString());
-        a.setIdEspecie(txtEspecie.getSelectedIndex());
-        a.setIdSexo(txtSexo.getSelectedIndex());
-        a.setId(idEstatico);
-        idEstatico++;
-        
-        animais.add(a);
-        JOptionPane.showMessageDialog(null, "Cadastrado.");
-        /*for (Animal animal : animais) {
-            System.out.println(animal.toString());
-        }*/
+        if (validaCampos()) {
+            Object sexo = txtSexo.getSelectedItem();
+            Object especie = txtEspecie.getSelectedItem();
+            Animal a = new Animal(txtNome.getText(), txtData.getText(),sexo.toString(), especie.toString(), txtRaca.getText(), txtAnotacoes.getText());
+            a.setIdEspecie(txtEspecie.getSelectedIndex());
+            a.setIdSexo(txtSexo.getSelectedIndex());
+            a.setId(idEstatico);
+            idEstatico++;
+            
+            animais.add(a);
+            JOptionPane.showMessageDialog(null, "Cadastrado.");
+            limpaCampos();
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos\ncorretamente.");
+        }
         
     }//GEN-LAST:event_btnSalvarActionPerformed
 
@@ -254,6 +273,10 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
     private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtIDActionPerformed
+
+    private void txtRacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRacaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRacaActionPerformed
 
     
     /**
@@ -300,6 +323,7 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -310,6 +334,27 @@ public class FrameCadastroAnimal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtEspecie;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtRaca;
     private javax.swing.JComboBox<String> txtSexo;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void limpaCampos() {
+        txtID.setText(String.valueOf(idEstatico));
+        txtAnotacoes.setText(null);
+        txtRaca.setText(null);
+        txtData.setText(null);
+        txtEspecie.setSelectedIndex(0);
+        txtSexo.setSelectedIndex(0);
+        txtNome.setText(null);
+    }
+
+    @Override
+    public boolean validaCampos() {
+        if ((txtAnotacoes.getText().isEmpty())||(txtRaca.getText().isEmpty()) || (txtNome.getText().isEmpty())) {
+            return false;
+        } else if ((txtData.getText().contains(" "))) {
+            return false;
+        }
+        return true;
+    }
 }

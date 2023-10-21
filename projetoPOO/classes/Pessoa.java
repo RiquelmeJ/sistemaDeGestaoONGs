@@ -4,7 +4,7 @@ package classes;
  *
  * @author Softex
  */
-public class Pessoa{
+public abstract class Pessoa{
     //dados pessoais
     private String nome; 
     private String dataDeNascimento;
@@ -80,8 +80,6 @@ public class Pessoa{
                 + ", email=" + email + "]";
     }
 
-    
-    
     public String getNome() {
         return nome;
     }

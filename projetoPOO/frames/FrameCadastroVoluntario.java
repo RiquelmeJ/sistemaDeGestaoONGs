@@ -4,6 +4,7 @@
  */
 package frames;
 
+import classes.Associado;
 import classes.Voluntario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -12,7 +13,7 @@ import javax.swing.JOptionPane;
  *
  * @author Softex
  */
-public class FrameCadastroVoluntario extends javax.swing.JFrame {
+public class FrameCadastroVoluntario extends javax.swing.JFrame implements InterfaceFormulario{
 
     private ArrayList<Voluntario> voluntarios = new ArrayList<>();
     private static int idEstatico = 1;
@@ -269,7 +270,7 @@ public class FrameCadastroVoluntario extends javax.swing.JFrame {
         jLabel12.setText("Telefone:");
 
         try {
-            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
+            txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##)#####-####")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -488,21 +489,26 @@ public class FrameCadastroVoluntario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        
+        if (validaCampos()) {
         Object sexo = txtSexo.getSelectedItem().toString();
         Object setor = txtSetor.getSelectedItem().toString();
         
         // Voluntario(String nome, String dataDeNascimento, String sexo, String cpf, String rua, String bairro,
         //int numeroDaCasa, String telefone, String email, String setor)
-        Voluntario v = new Voluntario(txtNome.getText(), txtData.getText(), sexo.toString(), txtCPF.getText(), txtRua.getText(), txtBairro.getText(),
+        Voluntario a = new Voluntario(txtNome.getText(), txtData.getText(), sexo.toString(), txtCPF.getText(), txtRua.getText(), txtBairro.getText(),
         1, txtCEP.getText(), txtCidade.getText(), txtComplemento.getText(), txtTelefone.getText(), txtEmail.getText(), setor.toString());
-        v.setId(idEstatico);
+        a.setId(idEstatico);
         idEstatico++;
-        voluntarios.add(v);
+        voluntarios.add(a);
         JOptionPane.showMessageDialog(null, "Cadastrado.");
+        limpaCampos();
         /*for (Animal animal : animais) {
             System.out.println(animal.toString());
         }*/
-
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Preencha todos os campos\ncorretamente.");
+        } 
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void txtDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDataActionPerformed
@@ -601,4 +607,41 @@ public class FrameCadastroVoluntario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtSexo;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+    @Override
+    public void limpaCampos() {
+        //dados pessoais
+        txtNome.setText(null);
+        txtId.setText(null);
+        txtData.setText(null);
+        txtCPF.setText(null);
+        txtSexo.setSelectedIndex(0);
+        txtSetor.setSelectedIndex(0);
+            
+        //endereço
+        txtRua.setText(null);
+        txtBairro.setText(null);
+        txtComplemento.setText(null);
+        txtNumero.setText(null);
+        txtCEP.setText(null);
+        txtCidade.setText(null);
+
+        //contato
+        txtTelefone.setText(null);
+        txtEmail.setText(null);
+    }
+
+    @Override
+    public boolean validaCampos() {
+        if(txtNome.getText().isEmpty()) {
+            return false;
+       } else if ((txtRua.getText().isEmpty())||(txtBairro.getText().isEmpty())||(txtComplemento.getText().isEmpty())||
+       (txtCEP.getText().contains(" "))||(txtCidade.getText().isEmpty())) {
+            return false;
+       } else if ((txtEmail.getText().isEmpty())) {
+            return false;
+       }
+
+       return true;
+    }
 }
+

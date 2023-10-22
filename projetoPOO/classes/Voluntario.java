@@ -4,13 +4,13 @@ public class Voluntario extends Pessoa{
     private String setor;
     private int id;
     private boolean[][] Horario = new boolean[3][7];
-    
-    public boolean[][] getHorario() {
-        return Horario;
+
+    public boolean getHorario(int linha, int coluna) {
+        return Horario[linha][coluna];
     }
 
-    public void setHorario(boolean[][] horario) {
-        Horario = horario;
+    public void setHorario(int linha, int coluna, boolean horario)  {
+        Horario[linha][coluna] = horario;
     }
 
     public Voluntario(String nome, String dataDeNascimento, String sexo, String cpf, String rua, String bairro,
@@ -18,6 +18,12 @@ public class Voluntario extends Pessoa{
             String setor) {
         super(nome, dataDeNascimento, sexo, cpf, rua, bairro, numeroDaCasa, cep, cidade, complemento, telefone, email);
         this.setor = setor;
+        int i = 0,  j = 0;
+        for (i = 0; i < 3; i++) {
+             for (j = 0; j < 7; j++) {
+                this.Horario[i][j] = false;
+            }
+        }
     }
 
     public int getId() {

@@ -70,6 +70,10 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
         txtFinanceiro = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        txtAlimentacao = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        txtVeterinario = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -100,7 +104,7 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
 
         txtTotalAnimais.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtTotalAnimais.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtTotalAnimais.setText("jLabel4");
+        txtTotalAnimais.setText("1");
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("cadastrados");
@@ -144,7 +148,7 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jLabel11))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -188,7 +192,7 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
 
         txtTotalVoluntarios.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         txtTotalVoluntarios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtTotalVoluntarios.setText("jLabel4");
+        txtTotalVoluntarios.setText("1");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setText("cadastrados");
@@ -198,18 +202,18 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
 
         txtLimpeza.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtLimpeza.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtLimpeza.setText("jLabel4");
+        txtLimpeza.setText("[texto]");
 
         jLabel22.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel22.setText("Comunicação");
 
         txtComunicacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtComunicacao.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtComunicacao.setText("jLabel4");
+        txtComunicacao.setText("[texto]");
 
         txtAdocoes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtAdocoes.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtAdocoes.setText("jLabel4");
+        txtAdocoes.setText("[texto]");
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel25.setText("Adoções");
@@ -219,10 +223,25 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
 
         txtFinanceiro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtFinanceiro.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtFinanceiro.setText("jLabel4");
+        txtFinanceiro.setText("[texto]");
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Voluntários por setor");
+
+        txtAlimentacao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtAlimentacao.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtAlimentacao.setText("[texto]");
+
+        jLabel27.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel27.setText("Alimentação");
+
+        jLabel30.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel30.setText("Veterinário");
+
+        txtVeterinario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        txtVeterinario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtVeterinario.setText("[texto]");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -230,45 +249,55 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jSeparator3)
+                        .addContainerGap())))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(txtTotalVoluntarios, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel15))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtComunicacao, javax.swing.GroupLayout.DEFAULT_SIZE, 45, Short.MAX_VALUE)
+                            .addComponent(txtLimpeza, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAdocoes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtFinanceiro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel25))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtLimpeza, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtVeterinario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel17))
+                                .addComponent(jLabel30))
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtComunicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAlimentacao, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel22)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtAdocoes, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel25))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(txtFinanceiro, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel26))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(jLabel19)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jSeparator3)
-                .addContainerGap())
+                                .addComponent(jLabel27))))
+                    .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtAdocoes, txtAlimentacao, txtComunicacao, txtFinanceiro, txtLimpeza, txtVeterinario});
+
+        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel17, jLabel22, jLabel25, jLabel26, jLabel27, jLabel30});
+
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -276,31 +305,33 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
                 .addComponent(jLabel12)
                 .addGap(1, 1, 1)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(7, 7, 7)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel19)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jLabel30)
+                            .addComponent(txtVeterinario)
+                            .addComponent(txtAdocoes)
+                            .addComponent(jLabel25)
+                            .addComponent(jLabel17)
+                            .addComponent(txtLimpeza))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(jLabel27)
+                            .addComponent(txtAlimentacao)
+                            .addComponent(jLabel26)
+                            .addComponent(txtFinanceiro)
+                            .addComponent(jLabel22)
+                            .addComponent(txtComunicacao)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(txtTotalVoluntarios, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel13)
                         .addGap(0, 0, 0)
-                        .addComponent(jLabel15))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel19)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                .addComponent(jLabel17)
-                                .addComponent(txtLimpeza))
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                                .addComponent(jLabel25)
-                                .addComponent(txtAdocoes)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jLabel26)
-                            .addComponent(txtFinanceiro)
-                            .addComponent(jLabel22)
-                            .addComponent(txtComunicacao))))
-                .addContainerGap(22, Short.MAX_VALUE))
+                        .addComponent(jLabel15)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -323,7 +354,7 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
 
         txtHomens.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtHomens.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtHomens.setText("jLabel4");
+        txtHomens.setText("0");
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel31.setText("Média de animais adotados");
@@ -334,7 +365,7 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
 
         txtMulheres.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         txtMulheres.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        txtMulheres.setText("jLabel4");
+        txtMulheres.setText("1");
 
         jLabel34.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         jLabel34.setText("Mulheres");
@@ -503,9 +534,11 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel34;
@@ -522,6 +555,7 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JLabel txtAdocoes;
     private javax.swing.JLabel txtAdotados;
+    private javax.swing.JLabel txtAlimentacao;
     private javax.swing.JLabel txtComunicacao;
     private javax.swing.JLabel txtFinanceiro;
     private javax.swing.JLabel txtHomens;
@@ -532,52 +566,60 @@ public class FrameRelatorio extends javax.swing.JFrame implements InterfaceLista
     private javax.swing.JLabel txtTotalAnimais;
     private javax.swing.JLabel txtTotalAssociados;
     private javax.swing.JLabel txtTotalVoluntarios;
+    private javax.swing.JLabel txtVeterinario;
     // End of variables declaration//GEN-END:variables
     @Override
     public void geraLista() {
-        int aux1 = 0, aux2 = 0, aux3 = 0, aux5 = 0;
-        double aux4 = 0;
+        int Adocoes = 0, Limpeza = 0, Financeiro = 0, Comunicacao = 0, Alimentacao = 0, Veterinario = 0;
+        int Homens = 0, Mulheres = 0, totalHospedados = 0, totalAdotados = 0;
+        double somaAdotados = 0;
+        
         txtTotalAnimais.setText(String.valueOf(animais.size()));
         for (Animal animal : animais) {
             if (animal.isAdotado()) {
-                aux1++;
+                totalAdotados++;
             } else {
-                aux2++;
+                totalHospedados++;
             }
         }
-        txtAdotados.setText(String.valueOf(aux1));
-        txtHospedados.setText(String.valueOf(aux2));
+        txtAdotados.setText(String.valueOf(totalAdotados));
+        txtHospedados.setText(String.valueOf(totalHospedados));
 
-        aux1 = 0; aux2 = 0;
         txtTotalAssociados.setText(String.valueOf(associados.size()));
         for (Associado associado : associados) {
-            if (associado.getSexo() == "Masculino") {
-                aux1++;
-                aux4 += aux4 + associado.getAdotados().size();
+            if ("Masculino".equals(associado.getSexo())) {
+                Homens++;
             } else {
-                aux2++;
+                Mulheres++;
             }
+            somaAdotados += somaAdotados + associado.getAdotados().size();
         }
-        txtHomens.setText(String.valueOf(aux1));
-        txtMulheres.setText(String.valueOf(aux2));
-        txtMedia.setText(String.valueOf(aux4/associados.size()));
+        txtHomens.setText(String.valueOf(Homens));
+        txtMulheres.setText(String.valueOf(Mulheres));
+        if (!associados.isEmpty()) {
+            txtMedia.setText(String.valueOf(totalAdotados/associados.size()));
+        } else {
+            txtMedia.setText("0");
+        }
 
-        aux1 = 0; aux2 = 0; aux4 = 0;
         txtTotalVoluntarios.setText(String.valueOf(voluntarios.size()));
         for (Voluntario voluntario : voluntarios) {
-            if (voluntario.getSetor() == "Adoções") {
-                aux1++;
-            } else if (voluntario.getSetor() == "Financeiro") {
-                aux2++;
-            }   else if (voluntario.getSetor() == "Comunicação") {
-                aux3++;
-            } else {
-                aux5++;
+            if (null != voluntario.getSetor()) switch (voluntario.getSetor()) {
+                case "Adoções" -> Adocoes++;
+                case "Financeiro" -> Financeiro++;
+                case "Comunicação" -> Comunicacao++;
+                case "Alimentação" -> Alimentacao++;
+                case "Veterinário" -> Veterinario++;
+                case "Limpeza" -> Limpeza++;
+                default -> {
+                }
             }
         }
-        txtComunicacao.setText(String.valueOf(aux3));
-        txtAdocoes.setText(String.valueOf(aux1));
-        txtFinanceiro.setText(String.valueOf(aux2));
-        txtLimpeza.setText(String.valueOf(aux5));
+        txtComunicacao.setText(String.valueOf(Comunicacao));
+        txtAdocoes.setText(String.valueOf(Adocoes));
+        txtFinanceiro.setText(String.valueOf(Financeiro));
+        txtLimpeza.setText(String.valueOf(Limpeza));
+        txtVeterinario.setText(String.valueOf(Veterinario));
+        txtAlimentacao.setText(String.valueOf(Alimentacao));
     }
 }

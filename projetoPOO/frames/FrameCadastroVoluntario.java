@@ -4,7 +4,6 @@
  */
 package frames;
 
-import classes.Associado;
 import classes.Voluntario;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -191,7 +190,7 @@ public class FrameCadastroVoluntario extends javax.swing.JFrame implements Inter
         jLabel14.setText("Setor de atuação:");
 
         txtSetor.setEditable(true);
-        txtSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Comunicação", "Financeiro", "Adoções" }));
+        txtSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Comunicação", "Financeiro", "Adoções", "Veterinário", "Alimentação" }));
         txtSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSetorActionPerformed(evt);
@@ -200,6 +199,7 @@ public class FrameCadastroVoluntario extends javax.swing.JFrame implements Inter
 
         jLabel18.setText("ID:");
 
+        txtId.setEditable(false);
         txtId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtId.setToolTipText("Insira seu nome");
         txtId.addActionListener(new java.awt.event.ActionListener() {
@@ -611,12 +611,12 @@ public class FrameCadastroVoluntario extends javax.swing.JFrame implements Inter
     public void limpaCampos() {
         //dados pessoais
         txtNome.setText(null);
-        txtId.setText(null);
+        txtId.setText(String.valueOf(idEstatico));
         txtData.setText(null);
         txtCPF.setText(null);
         txtSexo.setSelectedIndex(0);
         txtSetor.setSelectedIndex(0);
-            
+                
         //endereço
         txtRua.setText(null);
         txtBairro.setText(null);

@@ -139,7 +139,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
 
         jLabel14.setText("Setor de atuação:");
 
-        txtSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Limpeza", "Comunicação", "Financeiro", "Adoções" }));
+        txtSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adoções", "Alimentação", "Comunicação", "Financeiro", "Limpeza", "Resgate", "Veterinário" }));
         txtSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSetorActionPerformed(evt);
@@ -528,7 +528,8 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorariosActionPerformed
-
+        FrameHorario frame = new FrameHorario(voluntario);
+        frame.setVisible(true);
     }//GEN-LAST:event_btnHorariosActionPerformed
 
     private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed

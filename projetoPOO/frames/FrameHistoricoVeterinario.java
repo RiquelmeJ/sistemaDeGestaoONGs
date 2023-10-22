@@ -491,8 +491,10 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame implements Int
     public boolean validaCampos() {
         if ((txtData.getText().isEmpty()) || (txtDescricao.getText().isEmpty())) {
             return false;
+        } else if ((!txtPeso.getText().matches("^[0-9.]+$"))||(!txtIdade.getText().matches("^[0-9.]+$"))) {
+            JOptionPane.showMessageDialog(rootPane, "Utilize apenas números e pontos para\nindicar valores (exemplo: represente \nR$12,25 como 12.25).");
+            return false;
         }
-
         return true;
     }
 

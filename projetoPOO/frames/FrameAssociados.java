@@ -685,6 +685,9 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
         if (tblAssociados.getSelectedRow() != -1) { 
                 int id = (Integer.valueOf(String.valueOf(tblAssociados.getValueAt(tblAssociados.getSelectedRow(), 0))));
                 Associado a = associadoPorId(id);
+                for (Animal animal : a.getAdotados()) {
+                    animal.setAdotado(false);
+                }
                 associados.remove(a);
                 geraLista();
                 JOptionPane.showMessageDialog(rootPane, "Cadastro deletado.");

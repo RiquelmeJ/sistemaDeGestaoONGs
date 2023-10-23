@@ -175,6 +175,8 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame implements Int
             }
         });
 
+        txtId.setEditable(false);
+
         jLabel9.setText("ID:");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -214,7 +216,7 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame implements Int
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(btnAdicionar)
@@ -349,6 +351,7 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame implements Int
         JOptionPane.showMessageDialog(null, "Registro adicionado ao histórico.");
         geraLista();
         txtDescricao.setText(String.valueOf(animal.getHistoricoMedico().size()));
+        limpaCampos();
     }//GEN-LAST:event_btnAdicionarActionPerformed
 
     private void txtPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPesoActionPerformed
@@ -484,6 +487,7 @@ public class FrameHistoricoVeterinario extends javax.swing.JFrame implements Int
         txtDescricao.setText(null);
         txtIdade.setText(null);
         txtPeso.setText(null);
+        txtId.setText(String.valueOf(idEstatico));
 
     }
 

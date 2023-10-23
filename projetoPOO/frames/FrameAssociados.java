@@ -453,6 +453,7 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
         btnSalvarEditar.setBackground(new java.awt.Color(0, 100, 0));
         btnSalvarEditar.setForeground(new java.awt.Color(255, 255, 255));
         btnSalvarEditar.setText("Salvar mudanças");
+        btnSalvarEditar.setEnabled(false);
         btnSalvarEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalvarEditarActionPerformed(evt);
@@ -497,10 +498,7 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
 
         tblAdotados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
                 "ID", "Nome"
@@ -633,6 +631,8 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
                 txtAssociadoTitulo.setText("Vendo ficha");
                 btnFicha.setText("Fechar");
                 Associado a = associadoPorId(id);
+                btnEditar.setEnabled(false);
+                btnExcluir.setEnabled(false);
 
                 //criando ficha
                 preencheCampos(a);
@@ -642,6 +642,8 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
         } else {
             auxFicha =  false;
             habilitaCampos();
+            btnEditar.setEnabled(true);
+            btnExcluir.setEnabled(true);
             txtAssociadoTitulo.setText("Cadastrar associado");
             btnFicha.setText("Ver ficha");
             if (tblAssociados.getSelectedRow() != -1) { 
@@ -656,8 +658,10 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
         if (tblAssociados.getSelectedRow() != -1) { 
                 int id = (Integer.valueOf(String.valueOf(tblAssociados.getValueAt(tblAssociados.getSelectedRow(), 0))));
                 txtAssociadoTitulo.setText("Editando associado");
+                btnSalvarEditar.setEnabled(true);
                 btnSalvar.setEnabled(false);
                 btnEditar.setEnabled(false);
+                btnFicha.setEnabled(false);
                 Associado a = associadoPorId(id);
                 preencheCampos(a);
         } else {
@@ -667,6 +671,7 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
 
     private void btnSalvarEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarEditarActionPerformed
         int id = (Integer.valueOf(txtId.getText()));
+        btnSalvarEditar.setEnabled(false);
         Associado a = associadoPorId(id);
         String sexo = txtSexo.getSelectedItem().toString();
         a.editarAssociado(txtNome.getText(), txtData.getText(), sexo, txtCPF.getText(), txtRua.getText(), txtBairro.getText(),
@@ -891,7 +896,6 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
     }
 
     public void listaAdotados(int id) {
-        if(auxFicha) {
         Associado a = associadoPorId(id);
         DefaultTableModel model = new DefaultTableModel() {
             public boolean isCellEditable (int row, int column) {
@@ -901,7 +905,7 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
     
         model.addColumn("ID");
         model.addColumn("Nome");
-
+        if(auxFicha) {
          // Preenche o modelo de tabela com os dados dos alunos
         for (Animal animal : a.getAdotados() ) {
             Object[] rowData = {animal.getId(), animal.getNome()};
@@ -913,8 +917,11 @@ public class FrameAssociados extends javax.swing.JFrame implements InterfaceList
              model.addRow(rowData);
         }
         tblAdotados.setModel(model);
-        } 
-    }
+        } else {
+            Object[] rowData = {"Selecione um associado"};
+             model.addRow(rowData);
+        }
+    } 
 
     public Associado associadoPorId(int id) {
            for (Associado associado : associados) {

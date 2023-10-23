@@ -436,6 +436,7 @@ public class FrameInicialAdocao extends javax.swing.JFrame implements InterfaceF
 
             as.getAdotados().remove(an);
             an.setAdotado(false);
+            adocoes.remove(a);
             geraLista();
         } else {
             JOptionPane.showMessageDialog(null, "Selecione uma adoção.");

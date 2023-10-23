@@ -118,6 +118,7 @@ public class FrameExibirAnimal extends javax.swing.JFrame implements InterfaceFo
 
         jLabel4.setText("Data:");
 
+        txtNome.setEditable(false);
         txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNomeActionPerformed(evt);
@@ -125,7 +126,9 @@ public class FrameExibirAnimal extends javax.swing.JFrame implements InterfaceFo
         });
 
         txtEspecie.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Gato", "Cachorro" }));
+        txtEspecie.setEnabled(false);
 
+        txtData.setEditable(false);
         try {
             txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
@@ -139,6 +142,7 @@ public class FrameExibirAnimal extends javax.swing.JFrame implements InterfaceFo
 
         jLabel5.setText("Anotações (características, estado em que foi encontrado etc):");
 
+        txtAnotacoes.setEditable(false);
         txtAnotacoes.setColumns(20);
         txtAnotacoes.setRows(5);
         jScrollPane2.setViewportView(txtAnotacoes);
@@ -146,6 +150,7 @@ public class FrameExibirAnimal extends javax.swing.JFrame implements InterfaceFo
         jLabel6.setText("Sexo:");
 
         txtSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Macho", "Fêmea" }));
+        txtSexo.setEnabled(false);
         txtSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSexoActionPerformed(evt);
@@ -163,6 +168,7 @@ public class FrameExibirAnimal extends javax.swing.JFrame implements InterfaceFo
 
         jLabel9.setText("Raça:");
 
+        txtRaca.setEditable(false);
         txtRaca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtRacaActionPerformed(evt);
@@ -286,6 +292,7 @@ public class FrameExibirAnimal extends javax.swing.JFrame implements InterfaceFo
        txtSexo.setEnabled(true);
        txtAnotacoes.setEditable(true);
        txtData.setEditable(true);
+       txtRaca.setEditable(true);
        btnSalvar.setEnabled(true);
        btnAtualizar.setText("(editando)");
        btnAtualizar.setEnabled(false);
@@ -298,6 +305,7 @@ public class FrameExibirAnimal extends javax.swing.JFrame implements InterfaceFo
        txtSexo.setEnabled(false);
        txtAnotacoes.setEditable(false);
        txtData.setEditable(false);
+       txtRaca.setEditable(false);
         btnAtualizar.setEnabled(true);
         btnAtualizar.setText("Editar dados");
         btnSalvar.setEnabled(false);

@@ -5,12 +5,13 @@
 package frames;
 
 import classes.Voluntario;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Softex
  */
-public class FrameExibirVoluntario extends javax.swing.JFrame {
+public class FrameExibirVoluntario extends javax.swing.JFrame implements InterfaceFormulario{
     private Voluntario voluntario;
     /**
      * Creates new form FrameExibirVoluntario
@@ -71,7 +72,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         btnHorarios = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
-        btnEditar1 = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -88,7 +89,9 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         setResizable(false);
 
         jLabel1.setText("Nome:");
+        jLabel1.setEnabled(false);
 
+        txtNome.setEditable(false);
         txtNome.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtNome.setToolTipText("Insira seu nome");
         txtNome.addActionListener(new java.awt.event.ActionListener() {
@@ -98,14 +101,17 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         });
 
         jLabel2.setText("Data de nascimento:");
+        jLabel2.setEnabled(false);
 
         txtSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Não informado" }));
+        txtSexo.setEnabled(false);
         txtSexo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSexoActionPerformed(evt);
             }
         });
 
+        txtData.setEditable(false);
         try {
             txtData.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##/##/####")));
         } catch (java.text.ParseException ex) {
@@ -118,9 +124,12 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Gênero:");
+        jLabel3.setEnabled(false);
 
         jLabel4.setText("CPF:");
+        jLabel4.setEnabled(false);
 
+        txtCPF.setEditable(false);
         try {
             txtCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
@@ -138,8 +147,10 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         jLabel15.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jLabel14.setText("Setor de atuação:");
+        jLabel14.setEnabled(false);
 
         txtSetor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Adoções", "Alimentação", "Comunicação", "Financeiro", "Limpeza", "Resgate", "Veterinário" }));
+        txtSetor.setEnabled(false);
         txtSetor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSetorActionPerformed(evt);
@@ -147,10 +158,11 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         });
 
         jLabel18.setText("ID:");
+        jLabel18.setEnabled(false);
 
+        txtId.setEditable(false);
         txtId.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtId.setToolTipText("Insira seu nome");
-        txtId.setEnabled(false);
         txtId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtIdActionPerformed(evt);
@@ -221,6 +233,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
 
         jLabel7.setText("Rua:");
 
+        txtRua.setEditable(false);
         txtRua.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtRua.setToolTipText("Insira seu nome");
         txtRua.addActionListener(new java.awt.event.ActionListener() {
@@ -231,6 +244,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
 
         jLabel12.setText("CEP:");
 
+        txtCEP.setEditable(false);
         try {
             txtCEP.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
@@ -244,16 +258,19 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
 
         jLabel13.setText("Número:");
 
+        txtNumero.setEditable(false);
         txtNumero.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtNumero.setToolTipText("Insira seu nome");
 
         jLabel17.setText("Bairro:");
 
+        txtBairro.setEditable(false);
         txtBairro.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtBairro.setToolTipText("Insira seu nome");
 
         jLabel19.setText("Cidade:");
 
+        txtCidade.setEditable(false);
         txtCidade.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtCidade.setToolTipText("Insira seu nome");
         txtCidade.addActionListener(new java.awt.event.ActionListener() {
@@ -264,8 +281,14 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
 
         jLabel20.setText("Complemento:");
 
+        txtComplemento.setEditable(false);
         txtComplemento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         txtComplemento.setToolTipText("Insira seu nome");
+        txtComplemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtComplementoActionPerformed(evt);
+            }
+        });
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -333,6 +356,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
 
         jLabel22.setText("Telefone:");
 
+        txtTelefone.setEditable(false);
         try {
             txtTelefone.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("(##) #####-####")));
         } catch (java.text.ParseException ex) {
@@ -341,6 +365,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
 
         jLabel23.setText("E-mail:");
 
+        txtEmail.setEditable(false);
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
@@ -419,11 +444,11 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
             }
         });
 
-        btnEditar1.setText("Salvar alterações");
-        btnEditar1.setEnabled(false);
-        btnEditar1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvar.setText("Salvar alterações");
+        btnSalvar.setEnabled(false);
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditar1ActionPerformed(evt);
+                btnSalvarActionPerformed(evt);
             }
         });
 
@@ -437,7 +462,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEditar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnEditar1)
+                .addComponent(btnSalvar)
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -447,7 +472,7 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnHorarios)
                     .addComponent(btnEditar)
-                    .addComponent(btnEditar1))
+                    .addComponent(btnSalvar))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -524,7 +549,9 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
     }//GEN-LAST:event_txtEmailActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        // TODO add your handling code here:
+        btnSalvar.setEnabled(true);
+        btnEditar.setEnabled(false);
+        habilitaCampos();
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHorariosActionPerformed
@@ -532,9 +559,20 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         frame.setVisible(true);
     }//GEN-LAST:event_btnHorariosActionPerformed
 
-    private void btnEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditar1ActionPerformed
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        btnSalvar.setEnabled(false);
+        btnEditar.setEnabled(true);
+        desabilitaCampos();
+        
+        Object sexo = txtSexo.getSelectedItem().toString();
+        Object setor = txtSetor.getSelectedItem().toString();
+        voluntario.editarVoluntario(txtNome.getText(), txtData.getText(), sexo.toString(), txtCPF.getText(), txtRua.getText(), txtBairro.getText(),
+        1, txtCEP.getText(), txtCidade.getText(), txtComplemento.getText(), txtTelefone.getText(), txtEmail.getText(), setor.toString());
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void txtComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtComplementoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEditar1ActionPerformed
+    }//GEN-LAST:event_txtComplementoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -577,7 +615,8 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         txtId.setText(String.valueOf(voluntario.getId()));
         txtData.setText(voluntario.getDataDeNascimento());
         txtCPF.setText(voluntario.getCpf());
-            //adicionar index setor e sexo;
+        txtSexo.setSelectedItem(voluntario.getSexo());
+        txtSetor.setSelectedItem(voluntario.getSetor());
             
         //endereço
         txtRua.setText(voluntario.getRua());
@@ -592,10 +631,11 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
         txtEmail.setText(voluntario.getEmail());
     }
     
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEditar1;
     private javax.swing.JButton btnHorarios;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -636,4 +676,80 @@ public class FrameExibirVoluntario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> txtSexo;
     private javax.swing.JFormattedTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+   public void limpaCampos() {
+        //dados pessoais
+        txtNome.setText(null);
+        txtId.setText(null);
+        txtData.setText(null);
+        txtCPF.setText(null);
+        txtSexo.setSelectedIndex(0);
+            
+        //endereço
+        txtRua.setText(null);
+        txtBairro.setText(null);
+        txtComplemento.setText(null);
+        txtNumero.setText(null);
+        txtCEP.setText(null);
+        txtCidade.setText(null);
+
+        //contato
+        txtTelefone.setText(null);
+        txtEmail.setText(null);
+    }
+
+     public void desabilitaCampos() {
+            // Dados pessoais
+            txtNome.setEditable(false);
+            txtData.setEditable(false);
+            txtCPF.setEditable(false);
+            txtSexo.setEnabled(false);
+        
+            // Endereço
+            txtRua.setEditable(false);
+            txtBairro.setEditable(false);
+            txtComplemento.setEditable(false);
+            txtNumero.setEditable(false);
+            txtCEP.setEditable(false);
+            txtCidade.setEditable(false);
+        
+            // Contato
+            txtTelefone.setEditable(false);
+            txtEmail.setEditable(false);
+    }
+
+     public void habilitaCampos() {
+            // Dados pessoais
+            txtNome.setEditable(true);
+            txtData.setEditable(true);
+            txtCPF.setEditable(true);
+            txtSexo.setEnabled(true);
+        
+            // Endereço
+            txtRua.setEditable(true);
+            txtBairro.setEditable(true);
+            txtComplemento.setEditable(true);
+            txtNumero.setEditable(true);
+            txtCEP.setEditable(true);
+            txtCidade.setEditable(true);
+        
+            // Contato
+            txtTelefone.setEditable(true);
+            txtEmail.setEditable(true);
+    }
+
+    @Override
+    public boolean validaCampos() {
+       if(txtNome.getText().isEmpty()) {
+            return false;
+       } else if ((txtRua.getText().isEmpty())||(txtBairro.getText().isEmpty())||(txtComplemento.getText().isEmpty())||
+       (txtCEP.getText().contains(" "))||(txtCidade.getText().isEmpty())) {
+            return false;
+       } else if ((txtEmail.getText().isEmpty())) {
+            return false;
+       }
+
+       return true;
+    }
 }
